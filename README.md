@@ -225,5 +225,60 @@ echo $var;
 ?>
 
 ```
+<p>Скрипт для генерации QR-кодов</p>
+
+```javascript
+const express = require('express');
+const QRCode = require('qrcode');
+
+const app = express();
+
+app.get('/generate', async (req, res) => {
+  const url = req.query.url;
+
+  if (!url) {
+    return res.status(400).send('URL не указан.');
+  }
+
+  try {
+    const qr = await QRCode.toDataURL(url);
+    res.send(`<img src="${qr}" />`);
+  } catch (err) {
+    res.status(500).send('Ошибка при создании QR-кода.');
+  }
+});
+app.get('/', async (req, res) => {
+    res.send("Создание QR-кода. Пример:/generate?url=https://htmlacademy.ru")
+  });
+
+app.listen(3000, () => {
+  console.log(`Сервер запущен на порту 3000`);
+});
+```
+<p>Скрипт отправки Email</p>
+
+```javascript
+const nodemailer = require('nodemailer');
+
+let transporter = nodemailer.createTransport({
+    host: '',
+    port: ,
+    secure: false,
+    auth: {
+        user:"user",
+        pass: "pass",
+    },
+});
+
+let result = transporter.sendMail({
+    from: 'me',
+    to: 'you',
+    subject: 'Hello from bot',
+    text: 'Hello from bot'
+});
+console.log(result);
+```
+
+
 <h2 align="center">Вывод</h2>
 <p align="justify">Таким образом, я освежил в памяти работу с PHP, поработал с базой данных, написал скрипт для парсинга сайта, скрипт для отправки электронной почты, с помощью Node JS создал сервер для генерации QR-кодов, все поставленные цели были выполнены. </p>
