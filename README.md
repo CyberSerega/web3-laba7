@@ -352,6 +352,162 @@ console.error('Ошибка при запросе', error.message);
 parseToDb();
 ```
 
+<p>Codewars</p>
+<p>Breaking Chocolate Problem</p>
+
+```javascript
+function breakChocolate(n,m) {
+  if(n*m-1<0) return 0;
+  return n*m-1;
+}
+```
+
+<p>Playing with digits</p>
+
+```javascript
+function digPow(n, p){
+  var resNum = 0;
+  var temp = n.toString();
+  for(let i=0; i<temp.length; i++){
+    resNum+=Math.pow(Number(temp[i]),p);
+    p++;
+  }
+  if(resNum%n==0) return resNum/n;
+  else return -1;
+}
+```
+<p>The reject() function</p>
+
+```javascript
+function reject(array, predicate) {
+  let newArr = [];
+  for(let i = 0; i<array.length; i++){
+    if (!predicate(array[i])) newArr.push(array[i]);
+  }
+  return newArr;
+}
+```
+
+<p>Deodorant Evaporator</p>
+
+```javascript
+function evaporator(content, evap_per_day, threshold){ 
+  var days = 0;
+  var hold = content*threshold/100;
+  while(content>=hold){
+    content -= content*evap_per_day/100;
+    days++;
+  }
+  return days;
+}
+```
+
+<p>Fibonacci's FizzBuzz</p>
+
+```javascript
+var fibsFizzBuzz = function(n) {
+    function FibNum(num){
+      if(num<=2) return 1;
+      let first = 1;
+      let second = 1;
+      let sum=0;
+      for(let i = 3; i<=num; i++){
+        sum = first+second;
+        first = second;
+        second = sum;
+      }
+      return sum;
+    }
+  var res = [];
+  for(let i=1; i<=n; i++){
+    var num = FibNum(i);
+    if(num%3==0){
+      if(num%5==0) res.push('FizzBuzz');
+      else res.push('Fizz');
+    }
+    else if(num%5==0) res.push('Buzz');
+    else res.push(num);
+  }
+  return res;
+}
+```
+
+<p>Replace With Alphabet Position</p>
+
+```javascript
+function alphabetPosition(text) {
+  var res = "";
+  text = text.toLowerCase();
+  for(let i = 0; i<text.length; i++){
+    if (text[i].match(/[a-z]/i)) res += (text[i].charCodeAt()-'a'.charCodeAt()+1).toString()+" ";
+  }
+  res = res.trimEnd();
+  return res;
+}
+```
+
+<p>Equal Sides Of An Array</p>
+
+```javascript
+function findEvenIndex(arr)
+{
+  let leftSum = 0;
+  let rightSum = arr.reduce((acc, item) => acc+item, 0);
+  for(let i = 0; i<arr.length; i++){
+    rightSum-=arr[i];
+    if (leftSum==rightSum) return i;
+    leftSum+=arr[i];    
+  }
+  return -1;
+}
+```
+
+<p>Calculate average</p>
+
+```javascript
+function findAverage(array) {
+  let sum = 0;
+  for(let i = 0; i<array.length; i++){
+    sum+=array[i];
+  }
+  return array.length==0 ? 0 : sum/array.length;
+}
+```
+
+<p>Scrolling Text</p>
+
+```javascript
+function scrollingText(text){
+  text = text.toUpperCase();
+  const res = [text];
+  for(let i = 0; i < text.length-1; i++){
+    let firstSymb = text[0];
+    text = text.slice(1);
+    text+=firstSymb;
+    res.push(text);
+  }
+  return res;
+}
+```
+
+<p>Bumps in the Road</p>
+
+```javascript
+let bump = (x) => x.split('n').length-1>15 ? "Car Dead" : "Woohoo!";
+```
+
+<p>Coding Meetup #1 - Higher-Order Functions Series - Count the number of JavaScript developers coming from Europe</p>
+
+```javascript
+function countDevelopers(list) {
+  let count = 0;
+  for(let i = 0; i < list.length; i++){
+    if(list[i].continent === "Europe" && list[i].language ==="JavaScript") count++;
+  }
+  return count;
+}
+```
+
 
 <h2 align="center">Вывод</h2>
 <p align="justify">Таким образом, я освежил в памяти работу с PHP, поработал с базой данных, написал скрипт для парсинга сайта, скрипт для отправки электронной почты, с помощью Node JS создал сервер для генерации QR-кодов, все поставленные цели были выполнены. </p>
